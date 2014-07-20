@@ -4,3 +4,5 @@ public/components
 public/css
 public/*.html
 *.iml
+*.swp
+*.pyc
