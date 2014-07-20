@@ -1,0 +1,24 @@
+{
+    "name": "rabbitMQTest",
+    "version": "0.0.1",
+    "authors": [
+        "Vitaly <vit.nikitin@gmail.com>"
+    ],
+    "description": "bower modules",
+    "main": "?",
+    "keywords": [
+        "rabbitMQ",
+        "celery",
+        "sockJS"
+    ],
+    "directory": "public_modules",
+    "license": "MIT",
+    "homepage": "https://plus.google.com/+NikitinVitaly",
+    "private": true,
+    "dependencies": {
+        "bootstrap": "~3.2.0",
+        "sockjs": "0.3.4",
+        "stomp-websocket": "~2.3",
+        "node-uuid": "1.4.1"
+    }
+}
