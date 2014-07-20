@@ -17,6 +17,7 @@ def add(x, y):
 @celery.task
 def sleep(x):
     import time
+
     time.sleep(x)
     return x
 
@@ -25,4 +26,5 @@ def sleep(x):
 def time():
     import time
 
+    time.sleep(5)
     return time.time()

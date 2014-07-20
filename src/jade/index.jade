@@ -6,14 +6,30 @@ html
     include partials_js
     include partials_css
   body
-    nav.navbar.navbar-inverse('role'='navigation')
+    nav.navbar.navbar-inverse(role='navigation')
       .container-fluid
         .navbar-header
-          a.navbar-brand('href'='#') RabbitMQ test
+          a.navbar-brand(href='#') RabbitMQ test
         .collapse.navbar-collapse
           ul.nav.navbar-nav
-            li.active
-              a('href'='#') Common
-            li
-              a('href'='#') Console
-    .container
+            li.active(ref='common')
+              a(href='#') Common
+            li(ref='console')
+              a(href='#') Console
+    .container.active#celery(ref='common')
+      .row
+          form.form-horizontal(role="form")
+            .form-group
+              label.col-sm-2.control-label Task
+              .col-sm-10
+                select.form-control#tasks
+                  option(value="time") Task.time
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button.btn.btn-default#createTaskBtn Create
+      .row
+        .tasks#tasks_info
+    .container#console(ref='console')
+      .container-fluid
+        .row
+          .console.col-md-12#console_container

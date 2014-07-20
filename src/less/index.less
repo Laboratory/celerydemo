@@ -1,4 +1,25 @@
-.main {
-    color: red;
-    border: 2px;
+body > div.container {
+    display: none;
+}
+
+body > div.container.active {
+    display: block;
+}
+
+ul.nav a {
+    outline: 0;
+}
+
+#console_container div {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+#console_container div:last-child {
+    border-bottom: transparent;
+}
+
+#tasks_info.tasks > p {
+    padding: 1em;
 }
