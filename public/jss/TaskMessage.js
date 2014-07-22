@@ -58,6 +58,6 @@
 		if (message.expires) {
 			message.expires = formatDate(message.expires);
 		}
-		return JSON.stringify(message);
+		return (message);
 	}
 })(this);

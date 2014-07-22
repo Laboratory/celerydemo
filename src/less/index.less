@@ -1,25 +1,59 @@
 body > div.container {
     display: none;
-}
-
-body > div.container.active {
-    display: block;
+    &.active {
+        display: block;
+    }
 }
 
 ul.nav a {
     outline: 0;
 }
 
-#console_container div {
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
+@padding: 0.5em;
+#console_container {
+    >div {
+        border-bottom: 1px solid #ccc;
+        padding-bottom: @padding;
+        padding-top: @padding;
+        padding-left: @padding;
+
+        &.success {
+            background-color: #4cae4c;
+        }
+        &.error {
+            background-color: #c94a4a;
+            color: #ffffff;
+        }
+    }
+    >div:last-child {
+        border-bottom: transparent;
+    }
 }
 
-#console_container div:last-child {
-    border-bottom: transparent;
+#tasks_info {
+    &.tasks > p {
+        padding: 1em;
+        span {
+            display: inline-block;
+            padding: 0 @padding/2 0 @padding/2;
+            margin-left: @padding;
+        }
+        &.success {
+            background-color: #67b168;
+            color: #ffffff;
+        }
+        &.failure {
+            background-color: #d73131;
+            color: #ffffff;
+        }
+    }
 }
 
-#tasks_info.tasks > p {
-    padding: 1em;
+#error_modal {
+    .modal-content {
+        border: none;
+        .modal-body {
+            padding: 0;
+        }
+    }
 }

@@ -6,6 +6,7 @@ html
     include partials_js
     include partials_css
   body
+    include partials_error_dialog
     nav.navbar.navbar-inverse(role='navigation')
       .container-fluid
         .navbar-header
@@ -24,11 +25,14 @@ html
               .col-sm-10
                 select.form-control#tasks
                   option(value="time") Task.time
+                  option(value="sleep") Task.sleep
+                  option(value="add") Task.add
             .form-group
               .col-sm-offset-2.col-sm-10
                 button.btn.btn-default#createTaskBtn Create
       .row
         .tasks#tasks_info
+          .tasks_conteiner
     .container#console(ref='console')
       .container-fluid
         .row

@@ -1,4 +1,9 @@
 $(document).ready(function() {
+	$.subscribe('/error/text', function(ps, text) {
+		$('#error_body').text(text);
+		$('#error_modal').modal('show');
+	});
+
 	$('.navbar ul.nav li').on('click', function(evt) {
 		var node = $(evt.currentTarget);
 		var elementSelect = node.attr("ref");
@@ -15,10 +20,21 @@ $(document).ready(function() {
 	});
 
 	$.subscribe('/tasks/send', function(ps, params) {
-		message = JSON.parse(params.message);
-		var text = 'tasks.' + params.name + '#' + message.id;
-		$('#tasks_info').append('<p class="bg-danger">' + text + '</p>');
-	})
+		var message_id = params.message.id;
+		var text = 'tasks.' + params.name + '#' + message_id;
+		$('#tasks_info').append('<p task_id=' + message_id + ' class="bg-danger">' + text + '</p>');
+	});
+
+	$.subscribe('/message/recive', function(ps, task) {
+		var task_id = task.task_id;
+		var pNode = $('#tasks_info p[task_id=' + task_id + ']');
+		pNode.append('<span>' + getTaskResult(task) + '</span>')
+				.addClass(task.status.toLowerCase());
+	});
+
+	function getTaskResult(task) {
+		return queueManager.getTaskResult(task);
+	}
 });
 
 //https://gist.github.com/addyosmani/1321768
